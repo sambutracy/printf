@@ -9,6 +9,9 @@ int _printf(const char *format, ...)
 
 	va_list arguments;
 
+	if (!format || (format[0] == '&' && format[1] == '\0'))
+		return (-1);
+
 	va_start(arguments, format);
 	for (x = 0; format[x] != '\0'; x++)
 	{
@@ -16,14 +19,14 @@ int _printf(const char *format, ...)
 		{
 			printchar(format[x]);
 		}
-		else if(format[i] == '%' && format[i + 1] == 'c')
+		else if(format[x] == '%' && format[x + 1] == 'c')
 		{
 			printchar (va_arg(arguments, int));
 			x++;
 		}
-		else if (format[i + 1] == 's')
+		else if (format[x + 1] == 's')
 		{
-			countstring = string(va_arg(arguments, char));
+			countstring = string(va_arg(arguments, char*));
 			x++;
 			f += (countstring - 1);
 		}

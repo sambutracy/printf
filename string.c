@@ -16,5 +16,5 @@ int string(char *c)
 			printchar(c[cou]);
 		}
 	}
-	return (count);
+	return (cou);
 }
