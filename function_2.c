@@ -1,20 +1,20 @@
 #include "main.h"
 /**
  * p_int - Print int
- * @typeof: Lista of arguments
+ * @type: List a of arguments
  * @b: Buffer array to handle print
- * @flag_int:  Calculates active flags
+ * @flag_:  Calculates active flags
  * @w: get width.
  * @precision_: Precision specification
  * @s: Size specifier
  * Return: Number of chars printed
  */
-int p_int(va_list typeof, char b[],
+int p_int(va_list type, char b[],
 	int flag_int, int w, int precision_, int s)
 {
 	int x = BUFF_SIZE - 2;
 	int negative = 0;
-	long int n = va_arg(types, long int);
+	long int n = va_arg(type, long int);
 	unsigned long int num;
 
 	n = convert_size_number(n, s);
@@ -39,5 +39,5 @@ int p_int(va_list typeof, char b[],
 
 	x++;
 
-	return (write_number(negative, x, b, flag_int, w, precision_, s));
+	return (write_number(negative, x, b, flag_, w, precision_, s));
 }
