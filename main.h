@@ -27,4 +27,7 @@ int _printf(const char *format, ...);
 
 int p_int(va_list typeof, char b[],
         int flag_int, int w, int precision_, int s);
+
+/*string and printf */
+int string(char *c);
 #endif
