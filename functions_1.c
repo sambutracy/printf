@@ -12,7 +12,7 @@
  * @s: specify size
  * Return: the number of char printed
  */
-int printstr(va_list type, char buff[],
+int printstr(va_list type, char b[],
 	int flag_, int w, int precision, int s)
 {
 	int len = 0, i;
