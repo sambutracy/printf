@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <limits.h>
 
+#define F_MINUS 1
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
