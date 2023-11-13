@@ -4,7 +4,7 @@
 
 /**
  * printstr - to print a string character
- * @types: arguments of list a
+ * @type: arguments of list a
  * @buff: Buffer array handling print
  * @flag: active flags
  * @width: calculates width
