@@ -12,8 +12,10 @@
 #define BUFF_SIZE 1024
 
 int printchar(char c);
-
+/*printf functions*/
+void buffer.p(char buffer[], int *buff_i);
 int _printf(const char *format, ...);
+
 /* functions for printing chars and strings */
 
 int printstr(va_list type, char buff[],
