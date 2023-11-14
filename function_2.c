@@ -3,14 +3,14 @@
  * p_int - Print int
  * @type: List a of arguments
  * @b: Buffer array to handle print
- * @flag_:  Calculates active flags
+ * @flag_: Calculates active flags
  * @w: get width.
  * @precision_: Precision specification
  * @s: Size specifier
  * Return: Number of chars printed
  */
 int p_int(va_list type, char b[],
-	int flag_int, int w, int precision_, int s)
+	int flag_, int w, int precision_, int s)
 {
 	int x = BUFF_SIZE - 2;
 	int negative = 0;
