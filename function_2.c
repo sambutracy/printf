@@ -1,5 +1,6 @@
 #include "main.h"
 
+long int convert_size_number(long int num,int s);
 /**
  * p_int - Print int
  * @type: List a of arguments
@@ -151,6 +152,8 @@ int print_pointer(va_list type, char buffer[], int flag_, int w, int precision_,
 int print_non_printable(va_list type, char buffer[], int flag_, int w, int precision_, int s)
 {
     int i = 0, set = 0;
+    int append_hexa_code(char, char[], int);
+    int is_printable(char);
     char *string = va_arg(type, char *);
 
     UNUSED(flag_);
