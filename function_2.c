@@ -55,7 +55,7 @@ int p_int(va_list type, char b[], int flag_, int w, int precision_, int s)
 int p_pointer(va_list type, char b[], int flag_, int w, int precision, int s)
 {
     char extra_c = 0, padd = ' ';
-    int ind = BUFF_SIZE - 2, len = 2, padd_start = 1; /* length=2, for '0x' */
+    int ind = BUFF_SIZE - 2, len = 2, padd_start = 1;
     unsigned long num_addrs;
     char map_to[] = "0123456789abcdef";
     void *addrs = va_arg(type, void *);
@@ -192,7 +192,7 @@ int rot13string_func(va_list type, char buffer[], int flag_, int w, int precisio
     char *string;
     unsigned int i, j;
     int count = 0;
-    char x[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    char t[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     char y[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
     string = va_arg(type, char *);
@@ -208,9 +208,9 @@ int rot13string_func(va_list type, char buffer[], int flag_, int w, int precisio
     while (string[i])
     {
         j = 0;
-        while (x[j])
+        while (t[j])
         {
-            if (x[j] == string[i])
+            if (t[j] == string[i])
             {
                 x = y[j];
                 write(1, &x, 1);
@@ -219,7 +219,7 @@ int rot13string_func(va_list type, char buffer[], int flag_, int w, int precisio
             }
             j++;
         }
-        if (!x[j])
+        if (!t[j])
         {
             x = string[i];
             write(1, &x, 1);
