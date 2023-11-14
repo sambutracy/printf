@@ -5,23 +5,14 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <limits.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
-<<<<<<< HEAD
-int printchar(char c);
-/*printf functions*/
-void buffer.p(char buffer[], int *buff_i);
-int _printf(const char *format, ...);
-
-/* functions for printing chars and strings */
-=======
 /*flags*/
 #define F_MINUS 1
 #define F_PLUS 2
-#define F_ZER0 4
+#define FD_ZER0 4
 #define F_HASH 8
 #define F_SPACE 16
 
@@ -33,14 +24,13 @@ int _printf(const char *format, ...);
  * struct frmt - structure op
  *
  * @frmt: The format
- * @f: the associated function
+ * @frmt_t: the associated function
  */
->>>>>>> 16b7338477afec8edbf736dcf738a1c25e625b83
 
 struct frmt
 {
 	char frmt;
-	int (*f)(va_list, char[], int, int, int, int);
+	int (*fmt_t)(va_list, char[], int, int, int, int);
 };
 
 typedef struct frmt frmt_t;
@@ -61,7 +51,7 @@ int printfpercent(va_list type, char b[],
 /*function for printing integer(d% i%)*/
 
 int p_int(va_list type, char b[],
-		int flag_, int w, int precision_, int s);
+		int flag_, int w, int precision, int s);
 int p_binary(va_list type, char b[],
 		int flag_, int w, int precision, int s);
 int p_unsigned(va_list type, char b[],
