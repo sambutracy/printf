@@ -10,14 +10,14 @@
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
-<<<<<<< HEAD
+
 int printchar(char c);
 /*printf functions*/
-void buffer.p(char buffer[], int *buff_i);
+void buffer_p(char buffer[], int *buff_i);
 int _printf(const char *format, ...);
 
 /* functions for printing chars and strings */
-=======
+
 /*flags*/
 #define F_MINUS 1
 #define F_PLUS 2
@@ -35,15 +35,14 @@ int _printf(const char *format, ...);
  * @frmt: The format
  * @f: the associated function
  */
->>>>>>> 16b7338477afec8edbf736dcf738a1c25e625b83
 
-struct frmt
+
+typedef struct frmt
 {
 	char frmt;
 	int (*f)(va_list, char[], int, int, int, int);
-};
+}frmt_t;
 
-typedef struct frmt frmt_t;
 int printchar(char c);
 int _printf(const char *format, ...);
 int handle_print(const char *frmt, int *i,
@@ -83,14 +82,11 @@ int get_flags(const char *format, int *i);
 int get_width(const char *format, int *i, va_list lst);
 int get_precision(const char *format, int *i, va_list lst);
 int get_size(const char *format, int *i);
-
-/* string in reverse */
-int p_reverse(va_list type, char b[],
-		int flag_, int w, int precision, int s);
-
-/* print string in rot 13 */
-int p_rot13string(va_list type, char b[],
-		int flag_, int w, int precision, int s);
+/* functions to print pointer ,nonprintable ,reverse sstring in rot13*/
+int print_pointer(va_list type, char buffer[], int flag_, int w, int precision_, int s);
+int print_non_printable(va_list type, char buffer[], int flag_, int w, int precision_, int s);
+int rot13string_func(va_list type, char buffer[], int flag_, int w, int precision_, int s);
+int rev_print(va_list type, char buffer[], int flag_, int w, int precision_, int s);
 
 /* handle width (w) */
 int handle_write_char(char c, char b[],
