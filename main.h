@@ -115,4 +115,15 @@ int is_digit(char);
 
 long int convert_size_number(long int num, int s);
 long int convert_size_unsgnd(unsigned long int num, int s);
+/*functions for hexadecimals octal unsigned decimal*/
+int hexa_p(va_list p_f_list, char map_to[], char buffer_p[],
+   int flags, char flag_ch, int w, int precision, int size_);
+int hexa_upper_p(va_list p_f_list, char buffer_p[],
+    int flags, int w, int precision, int size_);
+int hexadecimal_p(va_list p_f_list, char buffer_p[],
+    int flags, int w, int precision, int size_);
+int octal_p(va_list p_f_list, char buffer_p[],
+    int flags, int w, int precision, int size_);
+int unsigned_p(va_list p_f_list, char buffer_p[],
+    int flags, int w, int precision, int size_);
 #endif
