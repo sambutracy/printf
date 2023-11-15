@@ -16,18 +16,17 @@
 /* size */
 #define S_LONG 2
 #define S_SHORT 1
-
 /**
- * struct frmt - structure op
- *
- * @frmt: The format
- * @fmt_t: the associated function
+ * struct frmt - Structure for format checking
+ * @lett: The input variable (provide a brief description)
+ * @func: The associated function for the format
  */
-typedef struct frmt {
+
+typedef struct frmt
+{
 	char *lett;
 	int (*func)(va_list);
 } check;
-
 
 int _putchar(char c);
 int _printf(const char *format, ...);
