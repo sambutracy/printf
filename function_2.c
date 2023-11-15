@@ -10,24 +10,28 @@ int p_int(va_list type)
 	int val = va_arg(type, int);
 	int x = 0;
 	int dig;
+	unsigned int n;
+
+	dig = 1;
 
 	if (val < 0)
 	{
-		_putchar('-');
-		x++;
-		val = -val;
+	
+		x += _putchar('-');
+		n = val * -1;
 	}
 	else
 	{
-		while (val != 0)
-		{
-			dig = val % 10;
-			_putchar(dig + '0');
-			x++;
-			val /= 10;
-		}
+		n = val;
 	}
-	return x;
-}
-			
+	for (;n / dig > 9; )
+		dig *= 10;
+	for (; dig != 0; )
+	{
+		x += _putchar('0' + n / dig);
+		n %= dig;
+		dig /= 10;
+	}
 
+	return (x);
+}
