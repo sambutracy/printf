@@ -5,7 +5,7 @@
 
 /**
  * printstr - to print a string character
- * @type: arguments of list 
+ * @type: arguments of list
  * Return: 1
  */
 int printstr(va_list type)
@@ -20,14 +20,14 @@ int printstr(va_list type)
 		len = strlen(string);
 		for (i = 0; i < len; i++)
 			_putchar(string[i]);
-		return len;
+		return (len);
 	}
 	else
 	{
 		len = strlen(string);
 		for (i = 0; i < len; i++)
 			_putchar(string[i]);
-		return len;
+		return (len);
 	}
 }
 
@@ -50,8 +50,8 @@ int printfchar(va_list type)
 
 
 /**
- * printfpercentaget- it prints a percentage sign
- * @list: argument list
+ * printfpercentage- it prints a percentage sign
+ * @type: argument list
  * Return: Number of chars printed
  */
 
