@@ -37,4 +37,3 @@ int specialflags(const char *string, int *x)
 
     return (f);
 }
-

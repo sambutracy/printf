@@ -1,7 +1,5 @@
 #include "main.h"
 
-void p_buffer(char b[], int *buff_ind);
-
 /**
  * _printf - Printf custom function implementation
  * @format: format.
@@ -10,71 +8,54 @@ void p_buffer(char b[], int *buff_ind);
  *	Tracy Sambu
  * Return: Printed chars.
  */
-
 int _printf(const char *format, ...)
 {
-	int val;
-	int printed = 0;
-	int printed_chars = 0;
-	/*buff_ind - index to keep track of position in buffer*/
-	int flag_, w, precision, s, buff_ind = 0;
-	va_list lst;
-	char b[BUFF_SIZE];
+    unsigned int i, sum_char = 0, found;
+    va_list type;
 
-	if (format == NULL)
-	{
-		return (-1);
-	}
-	va_start(lst, format);
+    check fmat[] = {
+        {"c", printfchar}, {"s", printstr}, {"%", printfpercent},
+        {"i", p_int}
+    };
 
-	for (val = 0; format && format[val] != '\0'; val++)
-	{
-		if (format[val] != '%')
-		{
-			b[buff_ind++] = format[val];
-			if (buff_ind == BUFF_SIZE)
-			{
-				p_buffer(b, &buff_ind);
-			}
+    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+        return (-1);
 
-			/* putchar like: write(1, &format[i], 1);*/
-			printed_chars++;
-		}
-		else
-		{
-			p_buffer(b, &buff_ind);
-			flag_ = get_flags(format, &val);
-			w = get_width(format, &val, lst);
-			precision = get_precision(format, &val, lst);
-			s = get_size(format, &val);
-			++val;
-			printed = handle_print(format, &val, lst, b,
-				flag_, w, precision, s);
-			if (printed == -1)
-			{
-				return (-1);
-			}
-			printed_chars += printed;
-		}
-	}
-	p_buffer(b, &buff_ind);
+    va_start(type, format);
 
-	va_end(lst);
+    while (*format)
+    {
+        if (*format != '%' && *format != '\0')
+        {
+            _putchar(*format);
+            sum_char++;
+        }
+        else
+        {
+            format++;
 
-	return (printed_chars);
-}
+            if (*format == '\0')
+                break;
 
-/**
- * p_buffer - Prints the contents of the buffer if it exist
- * @b: Array
- * @buff_ind: index to keep track of position in buffer
- */
+            for (found = 0, i = 0; i < sizeof(fmat) / sizeof(fmat[0]); i++)
+            {
+                if (*format == *(fmat[i].lett))
+                {
+                    sum_char += fmat[i].func(list_arg);
+                    found = 1;
+                    break;
+                }
+            }
 
-void p_buffer(char b[], int *buff_ind)
-{
-	if (*buff_ind > 0)
-	{
-		write(1, &b[0], *buff_ind);
-	}
-	*buff_ind = 0;
+            if (!found)
+            {
+                _putchar(*(--format));
+                sum_char++;
+            }
+        }
+        format++;
+    }
+
+    va_end(type);
+    return (sum_char);
 }

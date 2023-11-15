@@ -6,7 +6,7 @@
  *
  * Return: 1 (the number of characters printed)
  */
-int printchar(char c)
+int _putchar(char c)
 {
     return write(1, &c, 1);
 }
