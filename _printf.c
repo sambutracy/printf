@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
             {
                 if (*format == *(fmat[i].lett)||(*format == 'd' && *(fmat[i].lett) == 'i'))
                 {
-                    sum_char += fmat[i].func(list_arg);
+                    sum_char += fmat[i].func(type);
                     found = 1;
                     break;
                 }

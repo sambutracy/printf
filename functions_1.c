@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /************** PRINT A STRING **************/
 
@@ -16,14 +17,14 @@ int printstr(va_list type)
 	if (string == NULL)
 	{
 		string = "(null)";
-		len = _strlen(string);
+		len = strlen(string);
 		for (i = 0; i < len; i++)
 			_putchar(string[i]);
 		return len;
 	}
 	else
 	{
-		len = _strlen(string);
+		len = strlen(string);
 		for (i = 0; i < len; i++)
 			_putchar(string[i]);
 		return len;
@@ -54,8 +55,10 @@ int printfchar(va_list type)
  * Return: Number of chars printed
  */
 
-int printfpercent(__attribute__((unused))va_list type)
+int printfpercent(va_list type)
 {
+	(void)type;
+
 	_putchar('%');
 	return (1);
 }

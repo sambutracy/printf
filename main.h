@@ -28,8 +28,10 @@ typedef struct frmt {
 	int (*func)(va_list);
 } check;
 
+
 int _putchar(char c);
 int _printf(const char *format, ...);
+int p_int(va_list type);
 int printfchar(va_list type);
 int printstr(va_list type);
 int printfpercentage(va_list type);
