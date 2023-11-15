@@ -16,7 +16,6 @@ int p_int(va_list type)
 
 	if (val < 0)
 	{
-	
 		x += _putchar('-');
 		n = val * -1;
 	}
@@ -24,9 +23,10 @@ int p_int(va_list type)
 	{
 		n = val;
 	}
-	for (;n / dig > 9; )
+	for (; n / dig > 9;)
 		dig *= 10;
-	for (; dig != 0; )
+
+	for (; dig != 0;)
 	{
 		x += _putchar('0' + n / dig);
 		n %= dig;
