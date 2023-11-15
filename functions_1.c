@@ -50,12 +50,12 @@ int printfchar(va_list type)
 
 
 /**
- * printfpercent - it prints a percentage sign
+ * printfpercentaget- it prints a percentage sign
  * @list: argument list
  * Return: Number of chars printed
  */
 
-int printfpercent(va_list type)
+int printfpercentage(va_list type)
 {
 	(void)type;
 
