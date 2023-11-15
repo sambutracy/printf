@@ -24,14 +24,14 @@
  * @fmt_t: the associated function
  */
 typedef struct frmt {
-	char *frmt;
-	int (*fmt_t)(va_list);
+	char *lett;
+	int (*func)(va_list);
 } check;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
 int printfchar(va_list type);
-int printstring(va_list type);
+int printstr(va_list type);
 int printfpercentage(va_list type);
 
 #endif

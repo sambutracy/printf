@@ -14,8 +14,8 @@ int _printf(const char *format, ...)
     va_list type;
 
     check fmat[] = {
-        {"c", printfchar}, {"s", printstr}, {"%", printfpercent},
-        {"i", p_int}
+        {"c", printfchar}, {"s", printstr}, {"%", printfpercentage},
+        {"i", p_int},{"d",p_int}
     };
 
     if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 
             for (found = 0, i = 0; i < sizeof(fmat) / sizeof(fmat[0]); i++)
             {
-                if (*format == *(fmat[i].lett))
+                if (*format == *(fmat[i].lett)||(*format == 'd' && *(fmat[i].lett) == 'i'))
                 {
                     sum_char += fmat[i].func(list_arg);
                     found = 1;

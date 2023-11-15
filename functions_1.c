@@ -12,21 +12,21 @@ int printstr(va_list type)
 	char *string;
 	int i, len;
 
-	string = va_arg(char_arg, char *);
-	if (s == NULL)
+	string = va_arg(type, char *);
+	if (string == NULL)
 	{
 		string = "(null)";
-		len = strlen(string);
+		len = _strlen(string);
 		for (i = 0; i < len; i++)
 			_putchar(string[i]);
-		return (len);
-	)
+		return len;
+	}
 	else
 	{
 		len = _strlen(string);
 		for (i = 0; i < len; i++)
-			_putchar(s[i]);
-		return (len);
+			_putchar(string[i]);
+		return len;
 	}
 }
 
