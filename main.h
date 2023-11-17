@@ -34,6 +34,7 @@ int p_int(va_list type);
 int printfchar(va_list type);
 int printstr(va_list type);
 int printfpercentage(va_list type);
+int rev_function(va_list char_arguments);
 
 #endif
 
