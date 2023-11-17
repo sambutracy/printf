@@ -6,26 +6,30 @@
 int rot13_funct(va_list char_arguments)
 {
 	int a;
-	int b;
 	char *string;
-	char act[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	int index ;
 	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	string = va_arg(char_arguments, char*);
+
 	if (string == NULL)
 		return (-1);
 	for (a = 0; string[a] != '\0'; a++)
 	{
-		for (b = 0; b <= 52; a++)
+		if(string[a] >= 'A' && string[a] <= 'Z')
 		{
-			if (string[a] == act[b])
-			{
-				_putchar(rot[b]);
-				break;
-			}
+			index = string[a] - 'A';
+			_putchar(rot[index]);
 		}
-		if (b == 53)
+		else if(string[a] >= 'a' && string[a] <= 'z')
+		{
+			index =string[a] - 'a' + 26;
+			_putchar(rot[index]);
+		}
+		else
+		{
 			_putchar(string[a]);
+		}
 	}
-	return(string[a]);
+	return (a);
 }
