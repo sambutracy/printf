@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#define BUFF_SIZE 1024
+#define UNUSED(x) (void)(x)
+
 /* flags */
 #define F_MINUS 1
 #define F_PLUS 2
@@ -36,6 +39,14 @@ int printstr(va_list type);
 int printfpercentage(va_list type);
 int rev_function(va_list char_arguments);
 int rot13_funct(va_list char_arguments);
+
+/**/
+int unsigned_funct(va_list types, char buffer[]);
+int octal_funct(va_list types, char buffer[]);
+int hexadecimal_funct(va_list types, char buffer[]);
+int hexa_upper_funct(va_list types, char buffer[]);
+int hexa_lower_funct(va_list types, char map_to[], char buffer[], int flags, char flag_ch, int width, int precision, int size);
+int write_unsgnd(int precision, int width, char buffer[], int flags, int i, int size);
 
 #endif
 
