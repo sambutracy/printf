@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
     check fmat[] = {
         {"c", printfchar}, {"s", printstr}, {"%", printfpercentage},
-        {"i", p_int},{"d",p_int},{"r", rev_function},{"R",rot13_funct},{"u", unsigned_funct},{"o", octal_funct},{"x", hexadecimal_funct},{"X", hexa_upper_funct}
+        {"i", p_int},{"d",p_int},{"r", rev_function},{"R",rot13_funct}
     };
 
     if (format == NULL || (format[0] == '%' && format[1] == '\0'))
